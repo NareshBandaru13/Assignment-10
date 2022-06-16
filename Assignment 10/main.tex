@@ -1,0 +1,90 @@
+\documentclass{beamer}
+\usetheme{CambridgeUS}
+
+\setbeamertemplate{caption}[numbered]{}
+
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{gensymb}
+\usepackage{graphicx}
+\usepackage{txfonts}
+
+\def\inputGnumericTable{}
+
+\usepackage[latin1]{inputenc}                                 
+\usepackage{color}                                            
+\usepackage{array}                                            
+\usepackage{longtable}                                        
+\usepackage{calc}                                             
+\usepackage{multirow}                                         
+\usepackage{hhline}                                           
+\usepackage{ifthen}
+\usepackage{caption}
+
+\title{AI1110 \\ Assignment 10}
+\author{Bandaru Naresh Kumar \\ AI21BTECH11006}
+\date{}
+\begin{document}
+	% The title page
+	\begin{frame}
+		\titlepage
+	\end{frame}
+	
+	% The table of contents
+	\begin{frame}{Outline}
+    		\tableofcontents
+	\end{frame}
+	
+	% The question
+	\section{Question}
+	\begin{frame}{Exercise 12.2}
+       Show that if a process is normal and distribution-ergodic,then it is also mean-ergodic.
+	\end{frame}
+	
+	% The solution
+	\section{Solution}
+	\begin{frame}{Solution}
+	    The process X(t) is normal and such that:\\
+	    \begin{align}
+	    F(x,x;\tau) \rightarrow F^2(x) \text{as} \tau\rightarrow\infty
+	    \end{align}
+	    We shall show that it is mean-ergodic.It suffices to show         that: \\
+       $C(\tau)\rightarrow0$  as $\tau\rightarrow\infty$        	     
+	 \end{frame}
+	  
+	 %The prooof
+	 \section{Proof}
+	 \begin{frame}{Proof}
+	 We can assume that $\eta=0$ and $C(0)=1$.\\
+	 With this assumption,\\
+	    The RVs $X(t+\tau)$ and X(t) are N(0,0;1,1;r) where $r=r(\tau)=C(\tau)$ is the autocovariance of X(t).\\
+	 Hence,\\
+	 \begin{align}
+	 f(x_1,x_2;\tau) &= \dfrac{1}{2\Pi\sqrt{1-r^2}}exp\left\lbrace-\dfrac{1}{2(1-r^2)}(x_1^2-2rx_1x_2+x_2^2) \right\rbrace\\ 
+	                 &= \dfrac{1}{2\Pi\sqrt{1-r^2}}exp\left\lbrace-\dfrac{1}{2(1-r^2)}(x_1-rx_2)^2 \right\rbrace e^{-\dfrac{x_2^2}{2}}
+     \end{align}	    
+     \end{frame}	  
+	 
+	 \begin{frame}
+	 Clearly,$f(x,y) = f(y,x)$\\
+	 Hence,\\
+	 \begin{align}
+	 F(x+dx,x+dx;\tau)-F(x,x;\tau) = 2\int_{-\infty}^{x}f(\xi,x)\,d\xi dx\\
+	                               = \dfrac{1}{\Pi\sqrt{1-r^2}}\int_{-\infty}^{x}exp\left\lbrace-\dfrac{1}{2(1-r^2)}(\xi-xr)^2 \right\rbrace\,d\xi e^{-\dfrac{x_2^2}{2}}dx
+	 \end{align}
+	 \end{frame}
+	 
+	 % The final answer
+	\section{Answer}
+	\begin{frame}{Answer}
+	   Furthermore,
+	   \begin{align}
+	   F^2(x+dx)-F^2(x) = 2F(x)f(x)dx
+	   \end{align}
+	  From (1) and (6);\\
+	  $G\left( \dfrac{x-rx}{\sqrt{1-r^2}}\right)  \rightarrow G(x)$ as $\tau \rightarrow \infty$\\
+	  Hence,\\
+	  $r(\tau) \rightarrow 0$ as $\tau \rightarrow \infty$	  
+	\end{frame}
+\end{document}
